@@ -1,8 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-const App = () => (
-<div>
-<h1>Hello world!!</h1>
-</div>
-)
-ReactDOM.render(<App/>, document.getElementById('root'));
+import { Provider } from 'react-redux';
+import {createStore} from 'redux';
+import AppRootComponent from './comp/AppRootComponent'
+
+
+const reducer = (state={}, action)=>{
+    switch (action.type) {
+        default:
+          return {...state};
+      }
+};
+
+const store = createStore(reducer,{});
+
+const rootElement = document.getElementById('root');
+
+ReactDOM.render((
+    <Provider store={store}>
+      <AppRootComponent />
+    </Provider>
+  ), rootElement);
