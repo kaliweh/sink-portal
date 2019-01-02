@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import AppHeaderComponent from './AppHeaderComponent';
+import ImgPortalComponent from './ImgPortalComponent';
+import SearchComponent from './SearchComponent';
 
 class AppRootComponent extends Component{
     render() {
         return <div>
             <AppHeaderComponent/>
-        <h1>Hello From component!</h1>
+            <SearchComponent />
+            <ImgPortalComponent/>
         </div>
     }
 }

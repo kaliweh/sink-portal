@@ -3,12 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "moment": "^2.23.0",
     "react": "^16.7.0",
     "react-bootstrap": "^0.32.4",
+    "react-datepicker": "^2.0.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "vis": "^4.21.0"
   },
   "scripts": {
     "start": "webpack-dev-server --mode development",
