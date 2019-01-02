@@ -6,6 +6,8 @@ const searchReducer = (state, action) => {
         return { ...state, startDate: action.payload };
         case 'SEARCH_END_CHANGED':
         return { ...state, endDate: action.payload };
+        case 'SEARCH_FULFILLED':
+        return { ...state, results: action.payload };
       default:
         return { ...state };
     }

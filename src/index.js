@@ -25,7 +25,7 @@ const reducer = (state, action) => {
 
 const rootReducer = combineReducers({access: accessReducer, images: reducer, search: searchReducer});
 
-const store = createStore(rootReducer, {}, applyMiddleware(thunk, ReduxLogger));
+const store = createStore(rootReducer, {access:{}, images:{}, search:{results:[]}}, applyMiddleware(thunk, ReduxLogger));
 
 // imageUrl: 'https://assets.wordpress.envato-static.com/uploads/2017/08/tropical-PS53BSA.jpg'
 
