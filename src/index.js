@@ -9,7 +9,7 @@ import accessReducer from './reducers/accessReducer';
 import searchReducer from './reducers/searchReducer';
 
 require('./assets/images/favicon.ico');
-
+require('azure-storage/browser/bundle');
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -23,9 +23,9 @@ const reducer = (state, action) => {
   }
 };
 
-const rootReducer = combineReducers({access: accessReducer, images: reducer, search: searchReducer});
+const rootReducer = combineReducers({access: accessReducer, image: reducer, search: searchReducer});
 
-const store = createStore(rootReducer, {access:{}, images:{}, search:{results:[]}}, applyMiddleware(thunk, ReduxLogger));
+const store = createStore(rootReducer, {access:{}, image:{}, search:{results:[]}}, applyMiddleware(thunk, ReduxLogger));
 
 // imageUrl: 'https://assets.wordpress.envato-static.com/uploads/2017/08/tropical-PS53BSA.jpg'
 

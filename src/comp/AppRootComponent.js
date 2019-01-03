@@ -7,8 +7,8 @@ class AppRootComponent extends Component{
     render() {
         return <div>
             <AppHeaderComponent/>
-            <SearchComponent />
             <ImgPortalComponent/>
+            <SearchComponent />
         </div>
     }
 }

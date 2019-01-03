@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DatePicker from 'react-datepicker'
 import { connect } from 'react-redux';
 import  actions from '../actions/searchActions';
+import  imgActions from '../actions/imgPortal';
 import "react-datepicker/dist/react-datepicker.css";
 import '../assets/styles/search.css';
 
@@ -9,7 +10,7 @@ class SearchComponent extends Component {
     render() {
         let results = this.props.results;
         const resultRows = results.map((r,i)=>{
-            return <tr key={'res_'+i}>
+            return <tr key={'res_'+i} onClick={()=>{this.props.dispatch(imgActions.fetchImage(r.eventName))}}>
                 <td>{r.id}</td>
                 <td>{r.eventName}</td>
                 <td>{r.processed}</td>
@@ -27,6 +28,7 @@ class SearchComponent extends Component {
             timeIntervals={15}
             dateFormat="MMMM d, yyyy h:mm aa"
             timeCaption="time"
+            className='form-control'
             onChange={(v)=>this.props.dispatch(actions.searchStartChanged(v))}/>
         <span>End Date:</span>
         <DatePicker
@@ -36,9 +38,10 @@ class SearchComponent extends Component {
             timeIntervals={15}
             dateFormat="MMMM d, yyyy h:mm aa"
             timeCaption="time"
+            className='form-control'
             onChange={(v)=>this.props.dispatch(actions.searchEndChanged(v))}/>
-            <button className='btn btn-success' onClick={()=>this.props.dispatch(actions.submitSearch())}>Go</button>
-<hr/>
+            <button className='btn btn-success form-control' onClick={()=>this.props.dispatch(actions.submitSearch())}>GO</button>
+
 <table className='table table-bordered table-dark table-hover resultsTable'>
 <thead>
     <tr>

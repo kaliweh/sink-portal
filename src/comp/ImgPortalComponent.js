@@ -5,28 +5,22 @@ import moment from 'moment'
 
 // jsx
 
-const  clickHandler=(e)=>{
+const clickHandler= (e) =>{
     console.log(e);
 }
 
-const items = [{start:moment('2014-02-27T10:00:30'), title:'oh mg', row:0}]
-
 class ImgPortalComponent extends Component {
-    componentDidMount(){
-        actions.fetchImage(this.props.dispatch);
-    }
     render() {
         return (
             <div>
-          
             <img src={this.props.imageData} />
-            </div>
-            )
+            </div>)
+ 
     }
 }
 
 const mapStateToProps = state => ({
-    ...state
+    imageData: state.image.data
 });
 
 export default connect(mapStateToProps)(ImgPortalComponent);
