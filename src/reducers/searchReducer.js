@@ -8,6 +8,9 @@ const searchReducer = (state, action) => {
         return { ...state, endDate: action.payload };
         case 'SEARCH_FULFILLED':
         return { ...state, results: action.payload };
+        case 'SELECTED_EVENT_CHANGED':
+        return { ...state, selectedEvent: action.payload };
+        changeSelectedEvent
       default:
         return { ...state };
     }

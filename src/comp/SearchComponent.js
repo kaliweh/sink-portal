@@ -5,17 +5,18 @@ import  actions from '../actions/searchActions';
 import  imgActions from '../actions/imgPortal';
 import "react-datepicker/dist/react-datepicker.css";
 import '../assets/styles/search.css';
+import moment from 'moment';
 
 class SearchComponent extends Component {
     render() {
         let results = this.props.results;
         const resultRows = results.map((r,i)=>{
-            return <tr key={'res_'+i} onClick={()=>{this.props.dispatch(imgActions.fetchImage(r.eventName))}}>
+            return <tr key={'res_'+i} onClick={()=>{this.props.dispatch(actions.changeSelectedEvent(r))}}>
                 <td>{r.id}</td>
                 <td>{r.eventName}</td>
                 <td>{r.processed}</td>
                 <td>{r.classification}</td>
-                <td>{r.created}</td>
+                <td>{moment.utc(r.created).local().toLocaleString()}</td>
                 </tr>
         });
         return (

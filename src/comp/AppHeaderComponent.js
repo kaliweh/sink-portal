@@ -4,7 +4,7 @@ import logo from '../assets/images/logo.png';
 import '../assets/styles/header.css';
 import { connect } from 'react-redux';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, FormGroup, FormControl } from 'react-bootstrap';
-import { credentialsChanged, storageKeyChanged } from '../actions/accessActions';
+import { credentialsChanged, searchKeyChanged } from '../actions/accessActions';
 
 
 class AppHeaderComponent extends Component {
@@ -23,7 +23,7 @@ class AppHeaderComponent extends Component {
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="password" className="form-control" placeholder="Storage Secret" aria-label="" aria-describedby="basic-addon1" onChange={(e)=>this.props.dispatch(storageKeyChanged(e.target.value))} />
+                                    <input type="password" className="form-control" placeholder="Storage Secret" aria-label="" aria-describedby="basic-addon1" onKeyDown={(e)=>this.props.dispatch(searchKeyChanged(e.key))} />
                                 </td>
                             </tr>
                         </tbody>

@@ -6,6 +6,7 @@
     "@azure/storage-blob": "^10.3.0",
     "axios": "^0.18.0",
     "azure-storage": "^2.10.2",
+    "file-saver": "^2.0.0",
     "moment": "^2.23.0",
     "react": "^16.7.0",
     "react-bootstrap": "^0.32.4",
