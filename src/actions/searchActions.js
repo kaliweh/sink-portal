@@ -17,16 +17,19 @@ const submitSearch =()=>  {
         dispatch(searchStarted());
         const st = getState().search.startDate;
         const end = getState().search.endDate;
-        // axios.get('https://sinkapi.azurewebsites.net/api/GetSinkEvents?start='+ moment.utc(st).format('YYYYMMDDHHmmss')+'&end='+moment.utc(end).format('YYYYMMDDHHmmss'),{ headers: {
-        //     'x-functions-key': getState().access.credentials
-        //   }}).then(res=>dispatch(searchFulfilled(res.data)));
-        dispatch(searchFulfilled(demoResp));
+        const classification = getState().search.classification;
+        axios.get('https://sinkapi.azurewebsites.net/api/GetSinkEvents?start='+ moment.utc(st).format('YYYYMMDDHHmmss')+'&end='+moment.utc(end).format('YYYYMMDDHHmmss') +'&classification=' +classification,{ headers: {
+            'x-functions-key': getState().access.credentials
+          }}).then(res=>dispatch(searchFulfilled(res.data)));
+        //dispatch(searchFulfilled(demoResp));
     }
     //dispatch({type:'SUBMIT_SEARCH'});
 };
 
 
-
+const classificationChanged = (newClass)=>{
+    return {type:'CLASSIFICATION_CHANGED',payload:newClass };    
+}
 const changeSelectedEvent = (event)=>{
     return {type:'SELECTED_EVENT_CHANGED',payload:event };
   //  return {type:'SUBMIT_SEARCH'};
@@ -41,4 +44,4 @@ const searchFulfilled = (data) =>{
 }
 
 
-module.exports = {searchStartChanged, searchEndChanged, submitSearch, changeSelectedEvent}
+module.exports = {searchStartChanged, searchEndChanged, submitSearch, changeSelectedEvent,classificationChanged}

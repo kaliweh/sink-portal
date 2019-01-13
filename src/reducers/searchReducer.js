@@ -10,7 +10,8 @@ const searchReducer = (state, action) => {
         return { ...state, results: action.payload };
         case 'SELECTED_EVENT_CHANGED':
         return { ...state, selectedEvent: action.payload };
-        changeSelectedEvent
+        case 'CLASSIFICATION_CHANGED':
+        return { ...state, classification: action.payload };
       default:
         return { ...state };
     }
