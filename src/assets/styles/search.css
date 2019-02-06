@@ -1,3 +1,38 @@
 .resultsTable{
     cursor: pointer;
+    width: 50%;
 }
+
+
+.infoContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.infoContainer > div {
+    /* background-color: #f1f1f1; */
+    margin: 2px;
+    padding: 2px;
+    font-size: 20px;
+  }
+
+  .portalImage{
+    width: 50%;
+  }
+
+  .eventInfo{
+    width: 50%;
+  }
+  .goButton{
+    width: 50%;
+  }
+
+  .searchInput{
+      padding:8px;
+  }
+  
+  .searchLabel{
+    margin-left:5px;
+}
+
+.imageControl{background-color: black}

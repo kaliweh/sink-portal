@@ -21,11 +21,6 @@ class AppHeaderComponent extends Component {
                                     <input type="password" className="form-control" placeholder="API Secret" aria-label="" aria-describedby="basic-addon1" onChange={(e)=>this.props.dispatch(credentialsChanged(e.target.value))} />
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <input type="password" className="form-control" placeholder="Storage Secret" aria-label="" aria-describedby="basic-addon1" onKeyDown={(e)=>this.props.dispatch(searchKeyChanged(e.key))} />
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>

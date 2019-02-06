@@ -43,5 +43,25 @@ const searchFulfilled = (data) =>{
     return {type:'SEARCH_FULFILLED', payload: data};
 }
 
+const searchKeyChanged = (key) => {
+    return (dispatch, getState) => {
+        const selected = getState().search.selectedEvent;
+        const resIndex = getState().search.results.findIndex((r) => { return r.id === selected.id });
+        let newEvent = {};
+        if (key === 'Enter') {
+            const url = 'https://sinkimagesstorage.blob.core.windows.net/sink-images/' + getState().search.results[resIndex].eventName;
+            window.location.assign(url);
+            newEvent = getState().search.results[resIndex];
+        }
+        else if (key === 'ArrowUp') {
+            newEvent = getState().search.results[resIndex + 1];
+        }
+        else {
+            newEvent = getState().search.results[resIndex - 1];
+        }
+        dispatch({ type: 'SELECTED_EVENT_CHANGED', payload: newEvent });
+    }
+}
 
-module.exports = {searchStartChanged, searchEndChanged, submitSearch, changeSelectedEvent,classificationChanged}
+
+module.exports = {searchStartChanged, searchEndChanged, submitSearch, changeSelectedEvent,classificationChanged, searchKeyChanged}
